@@ -12,6 +12,8 @@ Random_Forest_Regressor <- function(X, Y){
    
    ## This function assumes that X is the data.frame/matrix of
    ## input and Y is the target varible
+   rf_md <- randomForest(Y ~ X)
+   
    
    
    
