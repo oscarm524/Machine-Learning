@@ -10,8 +10,7 @@ def choose(n, r):
 
 def pairwise_sum(X):
     
-    ## Here we find the dimensions of X
-    n_row = X.shape[0]
+    ## Here we find the number of columns of X
     n_col = X.shape[1]
     
     ## Here we find the number of pairwise sums
@@ -24,7 +23,7 @@ def pairwise_sum(X):
         for j in range(i+1, sums):
             X_out.append(X[:, i] + X[:, j])
     
-    ## Here we change the out to array
+    ## Here we change the list of results to array
     X_out = np.array(X_out)
     X_out = np.transpose(X_out)
     
@@ -33,11 +32,10 @@ def pairwise_sum(X):
 
 def pairwise_diff(X):
     
-    ## Here we find the dimensions of X
-    n_row = X.shape[0]
+    ## Here we find the number of columns of X
     n_col = X.shape[1]
     
-    ## Here we find the number of pairwise sums
+    ## Here we find the number of pairwise differences
     sums = int(choose(n_col, 2))
     
     ## Here we define a list to store results
@@ -47,7 +45,7 @@ def pairwise_diff(X):
         for j in range(i+1, sums):
             X_out.append(X[:, i] - X[:, j])
     
-    ## Here we change the out to array
+    ## Here we change the list of results to array
     X_out = np.array(X_out)
     X_out = np.transpose(X_out)
     
@@ -56,11 +54,10 @@ def pairwise_diff(X):
     
 def pairwise_prod(X):
     
-    ## Here we find the dimensions of X
-    n_row = X.shape[0]
+    ## Here we find the number of columns of X
     n_col = X.shape[1]
     
-    ## Here we find the number of pairwise sums
+    ## Here we find the number of pairwise prods
     sums = int(choose(n_col, 2))
     
     ## Here we define a list to store results
@@ -69,6 +66,42 @@ def pairwise_prod(X):
     for i in range(0, sums-1):
         for j in range(i+1, sums):
             X_out.append(X[:, i] * X[:, j])
+    
+    ## Here we change the list of results to array
+    X_out = np.array(X_out)
+    X_out = np.transpose(X_out)
+    
+    return X_out
+    
+    
+def squared_features(X):
+    
+    ## Here we find the number columns
+    n_col = X.shape[1]
+    
+    ## Here we define a list to store results
+    X_out = []
+    
+    for i in range(n_col):
+        X_out.append(X[:, i] ** 2)
+    
+    ## Here we change the out to array
+    X_out = np.array(X_out)
+    X_out = np.transpose(X_out)
+    
+    return X_out
+
+
+def cubed_features(X):
+    
+    ## Here we find the number columns
+    n_col = X.shape[1]
+    
+    ## Here we define a list to store results
+    X_out = []
+    
+    for i in range(n_col):
+        X_out.append(X[:, i] ** 3)
     
     ## Here we change the out to array
     X_out = np.array(X_out)
