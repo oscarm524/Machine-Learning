@@ -2,6 +2,8 @@
 ## Basic Feature Engineering Function (on inputs) ##
 ####################################################
 
+import numpy as np
+
 ## X: array of inputs 
 
 def choose(n, r):
