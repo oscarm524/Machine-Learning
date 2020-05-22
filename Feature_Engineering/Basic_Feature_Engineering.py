@@ -3,6 +3,7 @@
 ####################################################
 
 import numpy as np
+import math
 
 ## X: array of inputs 
 
